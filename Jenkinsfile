@@ -37,7 +37,15 @@ pipeline {
                 echo 'Build and Run'
                 sh "DB_HOST=${DB_HOST} DB_PORT=${DB_PORT} DB_NAME=${DB_NAME} DB_USER=${DB_USER} DB_PASSWORD=${DB_PASSWORD} API_PORT=${API_PORT} ${DOCKER_APP} compose up -d"
                 sleep 8
-                sh "docker exec ${DB_HOST} createdb -U ${DB_USER} ${DB_NAME}"
+                script {
+                    def dbExists = sh(script: "docker exec ${DB_HOST} psql -U ${DB_USER} -d ${DB_NAME} -c 'SELECT 1' 2>/dev/null", returnStatus: true)
+                    if (dbExists == 0) {
+                        echo "Database '${DB_NAME}' already exists"
+                    } else {
+                        sh "docker exec ${DB_HOST} createdb -U ${DB_USER} ${DB_NAME}"
+                        echo "Database '${DB_NAME}' created"
+                    }
+                }
             }
         }
     }
