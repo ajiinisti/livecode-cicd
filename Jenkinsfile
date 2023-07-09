@@ -11,7 +11,7 @@ pipeline {
         DB_NAME = 'postgres'
         DB_PASSWORD = 'password'
         DB_PORT = '5434'
-        API_PORT = '8182'
+        API_PORT = '8000'
     }
     stages {
         stage("Cleaning up") {
