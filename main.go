@@ -55,7 +55,7 @@ func PostBookHandler(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, book)
+	c.JSON(http.StatusCreated, book)
 }
 
 func initDb() (*gorm.DB, error) {
