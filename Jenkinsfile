@@ -6,7 +6,7 @@ pipeline {
         IMAGE = 'livecode-cicd'
         CONTAINER = 'livecode-cicd-container'
         DOCKER_APP = 'docker'
-        DB_HOST = 'backend-db'
+        DB_HOST = 'livecode-cicd-container-db'
         DB_USER = 'postgres'
         DB_NAME = 'postgres'
         DB_PASSWORD = 'password'
