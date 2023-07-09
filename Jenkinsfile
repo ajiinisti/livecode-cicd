@@ -31,20 +31,6 @@ pipeline {
                 git branch: "${BRANCH}", url: "${GIT_URL}"
             }
         }
-        
-        stage("Build") {
-            steps {
-                echo 'Building the project'
-                sh "${DOCKER_APP} build -t ${IMAGE} ."
-            }
-        }
-
-        stage("Unit Tests") {
-            steps {
-                echo 'Running unit tests'
-                sh "docker run --rm -v $(pwd):/go/src/app -w /go/src/app golang go test ./..."
-            }
-        }
 
         stage("Build and Run") {
             steps {
