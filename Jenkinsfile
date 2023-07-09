@@ -92,8 +92,7 @@ def notifySlack(buildStatus) {
             'color': color,
             'title': "Build ${statusText}",
             'text': "The build has ${statusText}.",
-            'footer': "Jenkins",
-            'ts': Math.floor(System.currentTimeMillis() / 1000).toString()
+            'footer': "Jenkins"
         ]]
     ]
 
