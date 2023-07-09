@@ -4,9 +4,9 @@ pipeline {
         GIT_URL = 'https://github.com/ajiinisti/livecode-cicd.git'
         BRANCH = 'main'
         IMAGE = 'livecode-cicd'
-        CONTAINER = 'livecode-cicd-container'
+        CONTAINER = 'livecode-cicd-backend'
         DOCKER_APP = 'docker'
-        DB_HOST = 'livecode-cicd-container-db'
+        DB_HOST = 'livecode-cicd-db'
         DB_USER = 'postgres'
         DB_NAME = 'postgres'
         DB_PASSWORD = 'password'
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Cleaning up'
                 sh "${DOCKER_APP} rm -f ${CONTAINER} || true"
-                sh "${DOCKER_APP} rm -f livecode-cicd-container-db || true"
+                sh "${DOCKER_APP} rm -f ${DB_HOST} || true"
             }
         }
 
