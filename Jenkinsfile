@@ -12,7 +12,7 @@ pipeline {
         DB_PASSWORD = 'password'
         DB_PORT = '5432'
         API_PORT = '8000'
-        SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
+        SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
         EMAIL_RECIPIENT = 'ajiinisti@gmail.com'
     }
     stages {
