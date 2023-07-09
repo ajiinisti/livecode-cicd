@@ -12,7 +12,7 @@ pipeline {
         DB_PASSWORD = 'password'
         DB_PORT = '5432'
         API_PORT = '8000'
-        SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
+        SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
         EMAIL_RECIPIENT = 'ajiinisti@gmail.com'
     }
     stages {
@@ -109,7 +109,7 @@ def notifySlack(buildStatus) {
     sh """
     curl -X POST \
         -H 'Content-type: application/json' \
-        --data-urlencode '${payload}' \
+        --data-urlencode "${payload}" \
         ${SLACK_WEBHOOK_URL}
     """
 }
