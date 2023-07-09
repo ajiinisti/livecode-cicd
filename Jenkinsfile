@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GIT_URL = 'https://github.com/ajiinisti/docker-go-2.git'
+        GIT_URL = 'https://github.com/ajiinisti/livecode-cicd.git'
         BRANCH = 'main'
         IMAGE = 'livecode-cicd'
         CONTAINER = 'livecode-cicd-container'
