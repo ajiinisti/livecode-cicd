@@ -17,7 +17,7 @@ pipeline {
         stage("Cleaning up") {
             steps {
                 echo 'Cleaning up'
-                sh "${DOCKER_APP} rm -f ${CONTAINER} || true"
+                sh "${DOCKER_APP}-compose down --volumes --rmi all"
             }
         }
 
